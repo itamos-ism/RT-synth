@@ -1,0 +1,20 @@
+!---------------!------------------------!
+!----IN/OUT-----!-------COMMENTS---------!
+!---------------!------------------------!
+sims            !Directory of PDR output
+yourmodelpref   !Model prefix
+velocityfile    !Velocity file
+1               !Vturb (km/s)
+1               !dust-to-gas norm. to 1e-2
+0               !Redshift (for Tcmb)
+!---------------!------------------------!
+!--3D models----!                        !
+!---------------!------------------------!
++z		!direction of integration
+128              !ctot
+1               !coolant
+1               !line
+0               !ignore edge cells
+-20             !velmin (km/s)
+20              !velmax (km/s)
+5               !velstep
