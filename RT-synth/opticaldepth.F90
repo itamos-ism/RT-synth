@@ -33,7 +33,7 @@ do vel = velmin, velmax
 
 !else VELOCITY
 #else 
-
+        alpha = phi*(coolant(jr)%A_COEFFS(lr+1,lr)*C**2/8./pi/coolant(jr)%frequencies(lr+1,lr)**2)*frac*step
 #ifdef DUST 
         alpha_dust = 0.1d0*d2g*(coolant(jr)%FREQUENCIES(lr+1,lr)/1000d9)**2*pdr(ci,cj,ck)%rho*MH*1.402 !Arzoumanian+11
         Bnu_dust = (2.*HP*coolant(jr)%FREQUENCIES(lr+1,lr)**3/C**2)/&
