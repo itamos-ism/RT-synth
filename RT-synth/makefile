@@ -55,7 +55,7 @@ ifeq ($(CDONLY),1)
 endif
 
 
-SRC = modules.F90 readcoolants.F90 read_input.F90 \
+SRC = modules.F90 read_command_line.F90 readcoolants.F90 read_input.F90 \
       initializations.F90 writeoutputs.F90 excitation.F90 \
       opticaldepth.F90 columndensities.F90 radiativetransfer.F90 
 
