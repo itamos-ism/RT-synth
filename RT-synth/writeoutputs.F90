@@ -29,7 +29,8 @@ write(6,*) 'writing file: ','RT_'//adjustl(trim(prefix))//'_'//adjustl(trim(los_
 !suffix = trim(adjustl(suf))//trim(adjustl(fix))
 
 !close(1);open(unit=1,file='RT_'//adjustl(trim(prefix))//'.dat',status='replace')
-close(1);open(unit=1,file='RT_'//adjustl(trim(prefix))//'_'//adjustl(trim(los_direction))//adjustl(trim(suffix)),status='replace')
+close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_'//adjustl(trim(prefix))//'_'//&
+      &adjustl(trim(los_direction))//adjustl(trim(suffix)),status='replace')
 do ci=1+ll,ctot-ll
   do cj=1+ll,ctot-ll
 #ifdef VELOCITY
@@ -42,7 +43,7 @@ do ci=1+ll,ctot-ll
 enddo
 
 #ifdef VELOCITY
-close(1);open(unit=1,file='RT_vel_'//adjustl(trim(prefix))//'_'&
+close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_vel_'//adjustl(trim(prefix))//'_'&
         //adjustl(trim(los_direction))//adjustl(trim(suffix)),status='replace')
 do vel=velmin,velmax-1
   do ci=1+ll,ctot-ll
@@ -54,7 +55,7 @@ do vel=velmin,velmax-1
   write(1,*) ''
 enddo
 
-close(1);open(unit=1,file='RT_vel_tau_'//adjustl(trim(prefix))//'_'&
+close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_vel_tau_'//adjustl(trim(prefix))//'_'&
         //adjustl(trim(los_direction))//adjustl(trim(suffix)),status='replace')
 do vel=velmin,velmax-1
   do ci=1+ll,ctot-ll
@@ -70,7 +71,8 @@ enddo
 
 
 if (jr.eq.1.and.lr.eq.1) then
-  close(1);open(unit=1,file='RT_'//adjustl(trim(prefix))//'_'//adjustl(trim(los_direction))//'_cds.dat',status='replace')
+  close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_'//adjustl(trim(prefix))//'_'//&
+       adjustl(trim(los_direction))//'_cds.dat',status='replace')
   do ci=1+ll,ctot-ll
     do cj=1+ll,ctot-ll
       NH2=0; NHI=0; NCp=0; NC=0; NCO=0; NHCOp=0; Ntgas=0
@@ -101,7 +103,8 @@ if (jr.eq.1.and.lr.eq.1) then
   enddo
 
 #ifdef CRATTENUATION
-  close(1);open(unit=1,file='RT_'//adjustl(trim(prefix))//'_'//adjustl(trim(los_direction))//'_Ncr.dat',status='replace')
+  close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_'//adjustl(trim(prefix))//&
+       '_'//adjustl(trim(los_direction))//'_Ncr.dat',status='replace')
   do ci=1+ll,ctot-ll
     do cj=1+ll,ctot-ll
       write(1,'(3ES15.7)') pdr(ci,cj,1)%x,pdr(ci,cj,1)%y,pdr(ci,cj,1)%Ncr/pdr(ci,cj,1)%Ntot
