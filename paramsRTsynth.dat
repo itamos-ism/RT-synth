@@ -2,6 +2,7 @@
 !----IN/OUT-----!-------COMMENTS---------!
 !---------------!------------------------!
 sims            !Directory of PDR output
+simsRTsynth     !Output directory of RTsynth
 yourmodelpref   !Model prefix
 velocityfile    !Velocity file
 1               !Vturb (km/s)
