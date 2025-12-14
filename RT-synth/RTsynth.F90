@@ -46,6 +46,8 @@ write(6,*) 'MULTILINES'
 write(6,*) 'MULTIDIRECTION'
 #endif
 
+call read_command_line
+
 call readparams
 call readcoolants
 call initializations
