@@ -15,7 +15,7 @@ double precision, parameter, public ::  PC = 3.08568025D+18 !pc in cm
 double precision, parameter, public ::  EV = 1.60217646D-12 !electron volt in erg
 double precision, parameter, public ::  PI = 3.141592653589
 
-
+character(len=50)::paramFile
 integer :: ci, cj, ck
 integer :: ll
 character(len=20) :: suffix
