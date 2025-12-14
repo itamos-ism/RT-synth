@@ -3,7 +3,7 @@ use RTsynth_module
 double precision :: NH2,NHI,NCp,NC,NCO,NHCOp,Ntgas
 
 write(6,*) 'Calculating column density maps'
-close(1);open(unit=1,file=adjustl(trim(outdir))//'RT_'//adjustl(trim(prefix))//&
+close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_'//adjustl(trim(prefix))//&
       &'_'//adjustl(trim(los_direction))//'_cds.dat',status='replace')
 do ci=1+ll,ctot-ll
   do cj=1+ll,ctot-ll
