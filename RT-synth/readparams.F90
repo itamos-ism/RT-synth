@@ -5,7 +5,7 @@ use m_readh5
 #endif
 character(len=20)::cfile
 
-close(1);open(unit=1,file='paramsRTsynth.dat',status='old')
+close(1);open(unit=1,file=paramFile,status='old')
 read(1,'(//)')
 read(1,*) directory
 read(1,*) prefix
