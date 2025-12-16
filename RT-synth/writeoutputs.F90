@@ -55,7 +55,7 @@ do vel=velmin,velmax-1
   write(1,*) ''
 enddo
 
-close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_vel_tau_'//adjustl(trim(prefix))//'_'&
+close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_tau_'//adjustl(trim(prefix))//'_'&
         //adjustl(trim(los_direction))//adjustl(trim(suffix)),status='replace')
 do vel=velmin,velmax-1
   do ci=1+ll,ctot-ll
