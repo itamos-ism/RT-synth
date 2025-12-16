@@ -23,6 +23,17 @@ do ci=1+ll,ctot-ll
 write(1,*) ''
 enddo
 
+#ifdef CRATTENUATION
+  close(1);open(unit=1,file=adjustl(trim(outdir))//'/'//'RT_'//adjustl(trim(prefix))//&
+       '_'//adjustl(trim(los_direction))//'_Ncr.dat',status='replace')
+  do ci=1+ll,ctot-ll
+    do cj=1+ll,ctot-ll
+      write(1,'(3ES15.7)') pdr(ci,cj,1)%x,pdr(ci,cj,1)%y,pdr(ci,cj,1)%Ncr/pdr(ci,cj,1)%Ntot
+    enddo
+  write(1,*) ''
+  enddo
+#endif
+
 #ifdef CDONLY
 stop
 #endif
