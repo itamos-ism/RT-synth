@@ -14,6 +14,11 @@ do vel = velmin, velmax
 #endif
   do ci=1+ll,ctot-ll
     do cj=1+ll,ctot-ll
+#ifdef VELOCITY
+      pdr(ci,cj,1+ll)%ttau(vel) = 0.0D0
+#else
+      pdr(ci,cj,1+ll)%ttau = 0.0D0
+#endif
       do ck=1+ll,ctot-ll-1
         sigma = (coolant(jr)%FREQUENCIES(lr+1,lr)/C) * SQRT(KB*pdr(ci,cj,ck)%Tgas/MH/coolant(jr)%molweight + vturb**2/2.)
         phi = 1. / sigma / sqrt(2.*PI)
@@ -39,10 +44,9 @@ do vel = velmin, velmax
         Bnu_dust = (2.*HP*coolant(jr)%FREQUENCIES(lr+1,lr)**3/C**2)/&
                 (dexp(HP*coolant(jr)%FREQUENCIES(lr+1,lr)/KB/pdr(ci,cj,ck)%Tdust)-1)
         pdr(ci,cj,ck)%tSource = (alpha*pdr(ci,cj,ck)%tBnu + alpha_dust*Bnu_dust)/(alpha + alpha_dust)
-        pdr(ci,cj,ck+1)%ttau = pdr(ci,cj,ck)%ttau + (alpha + alpha_dust)*step
+        pdr(ci,cj,ck+1)%ttau = pdr(ci,cj,ck)%ttau + alpha + alpha_dust
 #else
-        pdr(ci,cj,ck+1)%ttau = pdr(ci,cj,ck)%ttau + phi*(coolant(jr)%A_COEFFS(lr+1,lr)*C**2/8./pi/&
-                coolant(jr)%frequencies(lr+1,lr)**2)*frac*step
+        pdr(ci,cj,ck+1)%ttau = pdr(ci,cj,ck)%ttau + alpha
 #endif
 #endif
       enddo
