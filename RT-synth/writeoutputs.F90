@@ -36,7 +36,7 @@ do ci=1+ll,ctot-ll
 #ifdef VELOCITY
     write(1,'(100ES15.7)') pdr(ci,cj,1)%x,pdr(ci,cj,1)%y,pdr(ci,cj,1)%W*coolant(jr)%Vunits(lr+1,lr)
 #else
-    write(1,'(100ES15.7)') pdr(ci,cj,1)%x,pdr(ci,cj,1)%y,pdr(ci,cj,1)%Ntot,pdr(ci,cj,1)%tTr*coolant(jr)%units(lr+1,lr)
+    write(1,'(100ES15.7)') pdr(ci,cj,1)%x,pdr(ci,cj,1)%y,pdr(ci,cj,1)%tTr*coolant(jr)%units(lr+1,lr)
 #endif
   enddo
   write(1,*) ''
