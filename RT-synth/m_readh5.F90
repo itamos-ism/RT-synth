@@ -61,14 +61,6 @@ contains
     call read_h5_one_r3d(file_id, dims, temp_real, "tdust");    pdr%Tdust = temp_real
     call read_h5_one_r3d(file_id, dims, temp_real, "rho");      pdr%rho = temp_real
 
-    do k=1,ctot
-    do j=1,ctot
-    do i=1,ctot
-        allocate(pdr(i,j,k)%abun(1:nspec))
-    enddo
-    enddo
-    enddo
-
     do isp = 1, nspec
       write(file_index, '(I3.3)') isp
       file_name = "abundance" // trim(adjustl(file_index))
@@ -131,6 +123,7 @@ step = abs(pdr(1,1,2)%z-pdr(1,1,1)%z)*PC
     endif 
 #endif
 
+  deallocate(temp_real)
   end subroutine readpdrfiles_h5
 
   subroutine readspopfile_h5
