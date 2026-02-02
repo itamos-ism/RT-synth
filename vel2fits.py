@@ -2,10 +2,10 @@ import numpy as np
 from astropy.io import fits
 
 # Read the ASCII data e.g. RT_vel_SILCC64_+z_CO10.dat)
-data = np.loadtxt('RT_vel_Nrotate25_+z_HCO+10.dat') #specify the input _vel_ file
-ipix = 256 #specify the resolution
-csize = 2#12.8513 #size of cloud in pc
-outputname = '25_HCO+10.fits' #specify the name of the fits output
+data = np.loadtxt('RT_vel_FILENAME_DIRECTION_LINE.dat') #specify the input _vel_ file
+ipix = 128 #specify the resolution
+csize = 2 #size of cloud in pc
+outputname = 'OUTPUT.fifs' #specify the name of the fits output
 channels = 101 #number of channels (don't forget the velocity = 0 in your channel count!)
 
 # Get the unique velocity values (assuming these are in the first column)
