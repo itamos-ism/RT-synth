@@ -90,7 +90,11 @@ def expand_patterns(patterns: List[str]) -> List[str]:
         if f not in seen:
             seen.add(f)
             out.append(f)
-    return out
+
+    #omits the _cds.dat outputs
+    filtered = [f for f in out if not f.endswith("_cds.dat")]
+
+    return filtered
 
 
 def main():
